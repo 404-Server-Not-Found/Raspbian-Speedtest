@@ -57,9 +57,7 @@ cd raspberrypi-speedtest
 
 Now get the ID (which you can get from the url, e.g.: https://docs.google.com/spreadsheets/d/**SPREADSHEET-ID**/edit#gid=0) and save it for later
 
-Then create a gdocs app with oauth creds via https://console.developers.google.com/project and for that app: 
-	* Create an OAuth 2.0 client ID
-	* Enable Google Drive API
+Then create a gdocs app with oauth creds via https://console.developers.google.com/project and Create an OAuth 2.0 client ID and Enable Google Drive API
 	
 Now go back to the PI and rename gsheet.cfg to gsheet_add.cfg by running
 ```shell
