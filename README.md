@@ -3,10 +3,10 @@ Raspbian Speedtest Logger
 ======================
 
 Raspberry Pi Speedtest logger Setup Tutorial
-Written 15/07/17
 ----------------------------------------------------------------
+Written 15/07/17
 
-This tutorial orignally comes from "scottvlaminck", but weve made some inproments to his python script so that its logged to Google Sheets correctly
+**This tutorial orignally comes from "scottvlaminck", but weve made some inproments to his python script so that it's logged to Google Sheets correctly*
 
 In this tutorial we will use a Raspberry Pi with **"speedtest-cli"** installed to run a speedtest every hour and log it to a Google Sheet so first, we need to install the nessessary packages.
 
