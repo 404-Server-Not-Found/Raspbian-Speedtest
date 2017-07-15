@@ -1,89 +1,98 @@
 
-# raspberrypi-speedtest
+Raspbian Power Monitor
+======================
 
-# Setup
+Raspberry Pi Speedtest logger Setup Tutorial
+----------------------------------------------------------------
 
-## Prep your Raspberry Pi for doing the speedtest, per the article 
+This tutorial orignally comes from "scottvlaminck", but weve made some inproments to his python script so that its logged to Google Sheets correctly
 
-* `sudo apt-get install python-pip`
-* `sudo pip install speedtest-cli`
+In this tutorial we will use a Raspberry Pi with **"speedtest-cli"** installed to run a speedtest every hour and log it to a Google Sheet so first, we need to install the nessessary packages.
 
+```shell
+Sudo apt-get install python-pip
+Sudo pip install speedtest-cli
+```
+Then we should be able to see an output by running
 
-### Test
+```shell
+speedtest-cli 
+```
 
-* `speedtest-cli` 
-* `speedtest-cli --simple` 
+Now we need to install an extra paskage that fixes the output of **"speedtest-cli"** so that it looks right in Google Sheets
 
+```shell
+Sudo apt-get update
+Sudo apt-get install git
+Sudo git clone https://github.com/HenrikBengtsson/speedtest-cli-extras.git
+```
 
-### Install the extras
+Then we should be able to test the new output
 
-* `sudo apt-get update`
-* `sudo apt-get install git`
-* `git clone https://github.com/Pretzel-Computers/speedtest-cli-extras.git` 
+```shell
+/home/pi/speedtest-cli-extras/bin/speedtest-csv
+```
 
+Now we can set the Pi up to store the results for Google Sheets
 
-### Test
+```shell
+Sudo git clone https://github.com/google/gdata-python-client.git
+cd gdata-python-client; sudo python ./setup.py install
+cd
+```
 
-* `/home/pi/speedtest-cli-extras/bin/speedtest-csv` 
+Then we will clone this project and change into it's directory
 
+```shell
+git clone https://github.com/Pretzel-Computers/Raspbian-Speedtest
+cd raspberrypi-speedtest
+```
 
-## Prep your Raspberry Pi for saving the speedtest results (via this project)
-
-### Install google api client for python
-
-* `git clone https://github.com/google/gdata-python-client.git`
-* `cd gdata-python-client; sudo python ./setup.py install`
-
-
-### Clone this project
-
-* `git clone https://github.com/scottvlaminck/raspberrypi-speedtest`
-* `cd raspberrypi-speedtest`
-
-
-### Config this project
+### Now we can configure out Google Sheet and Oauth2 Tokens 
 
 * Create a google spreadsheet via https://docs.google.com/spreadsheets/u/0/ 
 	* With the following headers in the first row:
 
-> `ConnectionType	startdate	stopdate	provider	ip	speedtestserver	distance	pingtime	downloadspeed	uploadspeed	resultimg`
+> `ConnectionType	Start Date	Stop Date	Provider	IP	Speedtest Server	Distance	Pingtime	Download Speed	Upload Speed	resultimg`
 
-* Get the id (which you can get from the url, e.g.: https://docs.google.com/spreadsheets/d/**SPREADSHEET-ID**/edit#gid=0)
-* Create a gdocs app with oauth creds via https://console.developers.google.com/project and for that app: 
+Now get the ID (which you can get from the url, e.g.: https://docs.google.com/spreadsheets/d/**SPREADSHEET-ID**/edit#gid=0)
+Now create a gdocs app with oauth creds via https://console.developers.google.com/project and for that app: 
 	* Create an OAuth 2.0 client ID
 	* Enable Google Drive API
-* Rename gsheet.cfg to gsheet_add.cfg
-	* `mv gsheet.cfg gsheet_add.cfg`
-* Update `gsheet_add.cfg` with sheet id and oauth client + secret
-* Get an oauth token
-	* `python get_auth_token.py`
-	* Update `gsheet_add.cfg` with oauth & refresh tokens 
+	
+Now go back to the PI and rename gsheet.cfg to gsheet_add.cfg by running
+```shell
+mv gsheet.cfg gsheet_add.cfg
+```
+Then add your Oauth2 Client and Secret
+```shell
+Sudo nano gsheet_add.cfg
+```
 
+Now get an oauth token
+```shell
+Sudo python get_auth_token.py
+```
+Then update gsheet_add.cfg again with the Oauth and Refresh tokens
+```shell
+Sudo nano gsheet_add.gfc
+```
 
-### Test this thing
+Now test it and check your Google Sheet
+```shell
+run.sh
+```
 
-* `run.sh` 
-	* NOTE: This `run.sh` script is helpful, but very naive. It assumes that this project lives side-by-side with the speedtest-cli-extras/ directory. If that's not true, you should skip using it.
-* verify the sheet has a row of data 
+Now we want to run all this at the top of every hour we do this by adding it to Cron
 
+```shell
+crontab -e`
+```
 
-## Run the script at the top of each hour
+then at the bottom of the file add
 
-### Add it to cron
+```shell
+0 * * * * /home/pi/raspberrypi-speedtest/run.sh
+```
 
-* `crontab -e`
-* In the resulting editor, add the following line: 
-
-> `0 * * * * /home/pi/raspberrypi-speedtest/run.sh`
-
-
-### Graph the data
-
-* Update the spreadsheet to graph the data 
-
-
-
-
-
-
-
+## Thats it! Now you can see your speed every hour, and if you want you can set jp your Google sheet to mark speed that are below your liking automatically by using Conditional Formatting: https://support.google.com/docs/answer/78413?co=GENIE.Platform%3DDesktop&hl=en
