@@ -35,41 +35,42 @@ connection_type=config.get('other_values', 'connection_type')
 
 
 
+dict = {}
 for result_string in fileinput.input():
 	
-	result_names = ['startdate', 'stopdate', 'provider', 'ip', 'speedtestserver', 'distance', 'pingtime', 'downloadspeed', 'uploadspeed', 'resultimg']
+    result_names = ['startdate', 'stopdate', 'provider', 'ip', 'speedtestserver', 'distance', 'pingtime', 'downloadspeed', 'uploadspeed', 'resultimg']
 	
 	# 2016-04-26 02:59:03;2016-04-26 02:59:37;CenturyLink;97.116.3.36;US Internet (Minnetonka, MN);16.21 km;45.778 ms;45.73 Mbit/s;16.96 Mbit/s;http://www.speedtest.net/result/5278910900.png
-	result_list = result_string.split(";")
+    result_list = result_string.split("\t")
 	
 	
 	# create the OAuth2 token
-	token = gdata.gauth.OAuth2Token(client_id=client_id,client_secret=client_secret,scope='https://spreadsheets.google.com/feeds/',user_agent='rpi-speedtest-add',access_token=access_token,refresh_token=refresh_token)
-	
+    token = gdata.gauth.OAuth2Token(client_id=client_id,client_secret=client_secret,scope='https://spreadsheets.google.com/feeds/',user_agent='rpi-speedtest-add',access_token=access_token,refresh_token=refresh_token)
+ 	
 	# create the spreadsheet client and authenticate
-	spr_client = gdata.spreadsheets.client.SpreadsheetsClient()
-	token.authorize(spr_client)
+    spr_client = gdata.spreadsheets.client.SpreadsheetsClient()
+    token.authorize(spr_client)
 	
 	#create a ListEntry. the first item of the list corresponds to the first 'header' row
-	entry = gdata.spreadsheets.data.ListEntry()
 	
-	entry.set_value('connectiontype', connection_type)
+    dict['connectiontype'] = connection_type
 	
-	for i in range(len(result_list)):
-		
-		clean_result = result_list[i].strip()
-		
-		for ending in [" km", " ms", " Mbit/s"]: 		
-			if clean_result.endswith(ending):
-			    clean_result = clean_result[:-len(ending)]
-			
-		entry.set_value(result_names[i], clean_result)
+    for i in range(len(result_list)):
+        clean_result = result_list[i].strip()
+        for ending in [" km", " ms", " Mbit/s"]:
+            if clean_result.endswith(ending):
+                clean_result = clean_result[:-len(ending)]
+        dict[result_names[i]] = clean_result
 
-	# add the ListEntry you just made
-	spr_client.add_list_entry(entry, sheet_id, tab_id)
+    print "Dictionary "
+    print dict
+
+    entry = gdata.spreadsheets.data.ListEntry()
+    entry.from_dict(dict)
+    spr_client.add_list_entry(entry, sheet_id, tab_id)
+
 
 #	print ""
 #	print entry
 #	print ""
-
 
