@@ -3,6 +3,7 @@ Raspbian Speedtest Logger
 ======================
 
 Raspberry Pi Speedtest logger Setup Tutorial
+Written 15/07/17
 ----------------------------------------------------------------
 
 This tutorial orignally comes from "scottvlaminck", but weve made some inproments to his python script so that its logged to Google Sheets correctly
@@ -94,4 +95,4 @@ then at the bottom of the file add
 0 * * * * /home/pi/raspberrypi-speedtest/run.sh
 ```
 
-## Thats it! Now you can see your speed every hour, and if you want you can set jp your Google sheet to mark speed that are below your liking automatically by using Conditional Formatting: https://support.google.com/docs/answer/78413?co=GENIE.Platform%3DDesktop&hl=en
+## Thats it! Now you can see your speed every hour, and if you want you can set up your Google sheet to mark speed that are below your liking automatically by using Conditional Formatting: https://support.google.com/docs/answer/78413?co=GENIE.Platform%3DDesktop&hl=en
