@@ -53,7 +53,7 @@ cd raspberrypi-speedtest
 * Create a google spreadsheet via https://docs.google.com/spreadsheets/u/0/ 
 	* With the following headers in the first row:
 
-> `ConnectionType	Start Date	Stop Date	Provider	IP	Speedtest Server	Distance	Pingtime	Download Speed	Upload Speed	resultimg`
+> `ConnectionType | Start Date | Stop Date | Provider | IP | Speedtest Server | Distance | Pingtime | Download Speed | Upload Speed | resultimg
 
 Now get the ID (which you can get from the url, e.g.: https://docs.google.com/spreadsheets/d/**SPREADSHEET-ID**/edit#gid=0) and save it for later
 
@@ -68,11 +68,11 @@ Then add your Oauth2 Client and Secret
 Sudo nano gsheet_add.cfg
 ```
 
-Now get an oauth token
+Now get an Oauth2 token
 ```shell
 Sudo python get_auth_token.py
 ```
-Then update gsheet_add.cfg again with the Oauth and Refresh tokens
+Then update gsheet_add.cfg again with the Oauth2 and Refresh tokens
 ```shell
 Sudo nano gsheet_add.gfc
 ```
