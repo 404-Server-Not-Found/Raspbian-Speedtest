@@ -55,8 +55,9 @@ cd raspberrypi-speedtest
 
 > `ConnectionType	Start Date	Stop Date	Provider	IP	Speedtest Server	Distance	Pingtime	Download Speed	Upload Speed	resultimg`
 
-Now get the ID (which you can get from the url, e.g.: https://docs.google.com/spreadsheets/d/**SPREADSHEET-ID**/edit#gid=0)
-Now create a gdocs app with oauth creds via https://console.developers.google.com/project and for that app: 
+Now get the ID (which you can get from the url, e.g.: https://docs.google.com/spreadsheets/d/**SPREADSHEET-ID**/edit#gid=0) and save it for later
+
+Then create a gdocs app with oauth creds via https://console.developers.google.com/project and for that app: 
 	* Create an OAuth 2.0 client ID
 	* Enable Google Drive API
 	
