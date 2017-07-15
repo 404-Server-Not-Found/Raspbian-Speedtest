@@ -41,14 +41,14 @@ cd gdata-python-client; sudo python ./setup.py install
 cd
 ```
 
-Then we will clone this project and change into it's directory
+Then we will clone this project and cd into it's directory
 
 ```shell
 git clone https://github.com/Pretzel-Computers/Raspbian-Speedtest
 cd raspberrypi-speedtest
 ```
 
-### Now we can configure out Google Sheet and Oauth2 Tokens 
+### Now we can configure our Google Sheet and Oauth2 Tokens 
 
 * Create a google spreadsheet via https://docs.google.com/spreadsheets/u/0/ 
 	* With the following headers in the first row:
