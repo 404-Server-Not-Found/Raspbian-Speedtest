@@ -1,5 +1,5 @@
 
-Raspbian Power Monitor
+Raspbian Speedtest Logger 
 ======================
 
 Raspberry Pi Speedtest logger Setup Tutorial
