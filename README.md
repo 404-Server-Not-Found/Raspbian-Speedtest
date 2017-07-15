@@ -1,9 +1,6 @@
 
 # raspberrypi-speedtest
 
-Inspired by Make magazine http://makezine.com/projects/send-ticket-isp-when-your-internet-drops/ 
-
-
 # Setup
 
 ## Prep your Raspberry Pi for doing the speedtest, per the article 
@@ -22,7 +19,7 @@ Inspired by Make magazine http://makezine.com/projects/send-ticket-isp-when-your
 
 * `sudo apt-get update`
 * `sudo apt-get install git`
-* `git clone https://github.com/HenrikBengtsson/speedtest-cli-extras.git` 
+* `git clone https://github.com/Pretzel-Computers/speedtest-cli-extras.git` 
 
 
 ### Test
