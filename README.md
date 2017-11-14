@@ -66,7 +66,7 @@ Now go back to the PI and rename gsheet.cfg to gsheet_add.cfg by running
 ```shell
 mv gsheet.cfg gsheet_add.cfg
 ```
-Then add your Oauth2 Client and Secret
+Then add your Oauth2 Client, Secret and Spreadsheet ID
 ```shell
 Sudo nano gsheet_add.cfg
 ```
