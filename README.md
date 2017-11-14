@@ -48,7 +48,7 @@ Then we will clone this project and cd into it's directory
 
 ```shell
 git clone https://github.com/Pretzel-Computers/Raspbian-Speedtest
-cd raspberrypi-speedtest
+cd Raspbian-Speedtest
 ```
 
 ### Now we can configure our Google Sheet and Oauth2 Tokens 
