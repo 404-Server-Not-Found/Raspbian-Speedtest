@@ -13,8 +13,8 @@ In this tutorial we will use a Raspberry Pi with **"speedtest-cli"** installed t
 First, let's install the nessessary packages.
 
 ```shell
-Sudo apt-get install python-pip
-Sudo pip install speedtest-cli
+sudo apt-get install python-pip
+sudo pip install speedtest-cli
 ```
 Then we should be able to see an output by running
 
@@ -25,9 +25,9 @@ speedtest-cli
 Now we need to install an extra paskage that fixes the output of **"speedtest-cli"** so that it looks right in Google Sheets
 
 ```shell
-Sudo apt-get update
-Sudo apt-get install git
-Sudo git clone https://github.com/HenrikBengtsson/speedtest-cli-extras.git
+sudo apt-get update
+sudo apt-get install git
+sudo git clone https://github.com/HenrikBengtsson/speedtest-cli-extras.git
 ```
 
 Then we should be able to test the new output
@@ -39,7 +39,7 @@ Then we should be able to test the new output
 Now we can set the Pi up to store the results for Google Sheets
 
 ```shell
-Sudo git clone https://github.com/google/gdata-python-client.git
+sudo git clone https://github.com/google/gdata-python-client.git
 cd gdata-python-client; sudo python ./setup.py install
 cd
 ```
@@ -68,16 +68,16 @@ mv gsheet.cfg gsheet_add.cfg
 ```
 Then add your Oauth2 Client, Secret and Spreadsheet ID
 ```shell
-Sudo nano gsheet_add.cfg
+sudo nano gsheet_add.cfg
 ```
 
 Now get an Oauth2 token
 ```shell
-Sudo python get_auth_token.py
+sudo python get_auth_token.py
 ```
 Then update gsheet_add.cfg again with the Oauth2 and Refresh tokens
 ```shell
-Sudo nano gsheet_add.gfc
+sudo nano gsheet_add.gfc
 ```
 
 Now test it and check your Google Sheet
@@ -94,7 +94,7 @@ crontab -e`
 then at the bottom of the file add
 
 ```shell
-0 * * * * /home/pi/raspberrypi-speedtest/run.sh
+0 * * * * /home/pi/Raspbian-Speedtest/run.sh
 ```
 
 And let's finalize everything with
