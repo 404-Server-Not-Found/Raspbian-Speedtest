@@ -4,7 +4,7 @@ Raspbian Speedtest Logger
 
 Raspberry Pi Speedtest logger Setup Tutorial
 ----------------------------------------------------------------
-Written 15/07/17
+Written: 15/07/17
 Last updated: 22/12/17
 
 **This tutorial orignally comes from "scottvlaminck", but we've made some improvements to his python script so that it's logged to Google Sheets correctly**
