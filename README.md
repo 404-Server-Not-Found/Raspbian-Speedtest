@@ -102,6 +102,6 @@ And let's finalize everything with
 sudo reboot
 ```
 
-## Thats it! Now you can see your speed every hour, and if you want you can set up your Google sheet to mark speed that are below your liking automatically by using Conditional Formatting: https://support.google.com/docs/answer/78413?co=GENIE.Platform%3DDesktop&hl=en
+# Thats it! Now you can see your internet speed every hour, and if you want you can set up your Google Sheet to mark speeds that are below your liking automatically by using Conditional Formatting: https://support.google.com/docs/answer/78413?co=GENIE.Platform%3DDesktop&hl=en
 
-## If you have any problems please feel free to contact us at our website http://www.pretzelcomputers.com
+# If you have any problems please feel free to contact us on our website http://www.pretzelcomputers.com
