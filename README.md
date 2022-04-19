@@ -64,7 +64,7 @@ Now get the ID (which you can get from the url, e.g.: https://docs.google.com/sp
 
 Then create a gdocs app with oauth creds via https://console.developers.google.com/project and Create an OAuth 2.0 client ID and Enable Google Drive API
 	
-Now go back to the PI and rename gsheet.cfg to gsheet_add.cfg by running
+Now go back to the pi and rename gsheet.cfg to gsheet_add.cfg by running
 ```shell
 mv gsheet.cfg gsheet_add.cfg
 ```
