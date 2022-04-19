@@ -6,7 +6,7 @@ Raspberry Pi Speedtest logger Setup Tutorial
 ----------------------------------------------------------------
 Written: 15/07/17
 
-Last updated: 22/12/17
+Last updated: 19/04/22
 
 **This tutorial orignally comes from "scottvlaminck", but we've made some improvements to his python script so that it's logged to Google Sheets correctly**
 
@@ -87,7 +87,7 @@ Now test it and check your Google Sheet
 run.sh
 ```
 
-Now we want to run all this at the top of every hour we do this by adding it to Cron
+Cool, it's working! For good records, want to run all this at the top of every hour. We do this by adding it as a cron job
 
 ```shell
 crontab -e`
@@ -105,5 +105,3 @@ sudo reboot
 ```
 -----------------------------------------------------
  Thats it! Now you can see your internet speed every hour, and if you want you can set up your Google Sheet to mark speeds that are below your liking automatically by using Conditional Formatting: https://support.google.com/docs/answer/78413?co=GENIE.Platform%3DDesktop&hl=en
-
- If you have any problems please feel free to contact us on our website http://www.pretzelcomputers.com
